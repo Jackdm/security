@@ -108,8 +108,16 @@ class ViewController: UIViewController {
         }
         sleep(10)
     }
-
-//removed it :)
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "submitSegue" {
+            let nextVC = segue.destination as! DataViewController
+            nextVC.threat = verdict
+            nextVC.desc = reason
+        }
+    }
 }
 
        // let task = URLSession.shared.dataTask(with: url) { data, response, error in
