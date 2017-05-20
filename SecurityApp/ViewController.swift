@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     @IBAction func submitButtonPressed(_ sender: Any) {
         catagorizeUserInput()
-        safetyTextField
+        userInput = safetyTextField.text
     }
     
     func segueToDataPage() {
