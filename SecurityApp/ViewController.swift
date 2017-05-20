@@ -12,28 +12,44 @@ import UIKit
 class ViewController: UIViewController {
     var userInput : String!
 
+    @IBOutlet weak var safetyTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func submitButtonPressed(_ sender: Any) {
+        catagorizeUserInput()
+        safetyTextField
+    }
+    
+    func segueToDataPage() {
+        performSegue(withIdentifier: "submitSegue", sender: nil)
     }
     
     func catagorizeUserInput() {
         for i in userInput.characters {
             if i == "@" {
                 //threat = email
+                segueToDataPage()
             }
             if i == ":" {
                 //threat = e
+                segueToDataPage()
             }
             else {
                 //threat = app
+                segueToDataPage()
             }
         }
+    }
+    
+    func getWebSafety() {
+        var APIKey = "AIzaSyBfSH3lILjmW2wJgRcLpG-mItRr05X1U9k"
+        var clientName = "Security App"
+        var clientVersion = 1.0
+        var pver   = 3.0
+        var url = userInput
     }
 
 //removed it :)
