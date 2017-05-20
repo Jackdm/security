@@ -15,6 +15,24 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var pwnData: UILabel!
     @IBOutlet weak var safetyTextField: UITextField!
+    
+    
+    func pwnCheck() {
+        let url = URL(string: "https://haveibeenpwned.com/api/v2/breachedaccount/george@gmail.com?truncateResponse=true")!
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("\(String(describing: error))")
+                return
+            }
+            
+            self.unfData = String(data: data, encoding: .utf8)
+            print(self.unfData)
+            pwnData.text = self.unfData
+        }
+        
+        pwnCheck()}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -56,20 +74,3 @@ class ViewController: UIViewController {
 
 //removed it :)
 }
-
-
-func pwnCheck() {
-    let url = URL(string: "https://haveibeenpwned.com/api/v2/breachedaccount/george@gmail.com?truncateResponse=true")!
-    
-    let task = URLSession.shared.dataTask(with: url) { data, response, error in
-        guard let data = data, error == nil else {
-            print("\(String(describing: error))")
-            return
-        }
-    
-    unfData = String(data: data, encoding: .utf8)
-    print(unfData)
-    UILabel. (unfData)
-}
-
-pwnCheck()
