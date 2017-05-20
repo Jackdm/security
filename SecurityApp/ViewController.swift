@@ -7,6 +7,22 @@
 //
 
 import UIKit
+import Kanna
+import Alamofire
+
+// Grabs the HTML from nycmetalscene.com for parsing.
+func scrapeNYCMetalScene() -> Void {
+    Alamofire.request("http://nycmetalscene.com").responseString { response in
+        print("\(response.result.isSuccess)")
+        if let html = response.result.value {
+            self.parseHTML(html: html)
+        }
+    }
+}
+
+func parseHTML(html: String) -> Void {
+    // Finish this next
+}
 
 class ViewController: UIViewController {
     var userInput : String!
