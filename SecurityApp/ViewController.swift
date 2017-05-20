@@ -11,7 +11,9 @@ import UIKit
 
 class ViewController: UIViewController {
     var userInput : String!
+    var unfData : String!
 
+    @IBOutlet weak var pwnData: UILabel!
     @IBOutlet weak var safetyTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,7 @@ class ViewController: UIViewController {
     
     @IBAction func submitButtonPressed(_ sender: Any) {
         catagorizeUserInput()
-        userInput = safetyTextField.text
+        //userInput = safetyTextField.text
     }
     
     func segueToDataPage() {
@@ -49,9 +51,25 @@ class ViewController: UIViewController {
         var clientName = "Security App"
         var clientVersion = 1.0
         var pver   = 3.0
-        var url = userInput
+        //var url = userInput
     }
 
 //removed it :)
 }
 
+
+func pwnCheck() {
+    let url = URL(string: "https://haveibeenpwned.com/api/v2/breachedaccount/george@gmail.com?truncateResponse=true")!
+    
+    let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        guard let data = data, error == nil else {
+            print("\(String(describing: error))")
+            return
+        }
+    
+    unfData = String(data: data, encoding: .utf8)
+    print(unfData)
+    UILabel. (unfData)
+}
+
+pwnCheck()
