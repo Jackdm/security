@@ -22,19 +22,12 @@ class ViewController: UIViewController {
     
     func pwnCheck() {
         let url = URL(string: "https://haveibeenpwned.com/api/v2/breachedaccount/george@gmail.com?truncateResponse=true")!
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                print("\(String(describing: error))")
-                return
-            }
-            
-            self.unfData = String(data: data, encoding: .utf8)
-            print(self.unfData)
-            pwnData.text = self.unfData
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        self.pwnData.text = (NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String?)
         }
-        
-        pwnCheck()}
+        task.resume()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +47,9 @@ class ViewController: UIViewController {
         for i in userInput.characters {
             if i == "@" {
                 //threat = email
+                
                 segueToDataPage()
+                
             }
             if i == ":" {
                 //threat = e
@@ -116,3 +111,13 @@ class ViewController: UIViewController {
 
 //removed it :)
 }
+
+       // let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        //    guard let data = data, error == nil else {
+        //        print("\(String(describing: error))")
+          //      return
+         //   }
+//
+          //  self.unfData = String(data: data, encoding: .utf8)
+          //  print(self.unfData)
+         //   self.pwnData.text = self.unfData
