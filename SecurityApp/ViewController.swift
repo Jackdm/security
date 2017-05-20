@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var userInput : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,20 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func catagorizeUserInput() {
+        for i in userInput.characters {
+            if i == "@" {
+                //threat = email
+            }
+            if i == ":" {
+                //threat = e
+            }
+            else {
+                //threat = app
+            }
+        }
     }
 
 //removed it :)
