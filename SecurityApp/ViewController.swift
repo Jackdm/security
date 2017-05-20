@@ -12,7 +12,10 @@ import UIKit
 class ViewController: UIViewController {
     var userInput : String!
     var unfData : String!
-
+    
+    var verdict : String!
+    var reason : String!
+    
     @IBOutlet weak var pwnData: UILabel!
     @IBOutlet weak var safetyTextField: UITextField!
     
@@ -66,10 +69,49 @@ class ViewController: UIViewController {
     
     func getWebSafety() {
         var APIKey = "AIzaSyBfSH3lILjmW2wJgRcLpG-mItRr05X1U9k"
-        var clientName = "Security App"
-        var clientVersion = 1.0
-        var pver   = 3.0
-        //var url = userInput
+        var clientName = "SecurityApp"
+        var clientVersion = "1.0"
+        var pver   = "3.1"
+        var noturl = userInput
+        var url = noturl?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        var subu = "https://sb-ssl.google.com/safebrowsing/api/lookup?client=" + clientName + "&key=" + APIKey
+        var u = "&appver=" + clientVersion
+        var r = "&pver=" + pver + "&url=" + url!
+        var completeu = subu + u + r
+        
+
+        func HTTPsendRequest(request: NSMutableURLRequest,callback: @escaping (String, String?) -> Void) {
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest,completionHandler :
+                {
+                    data, response, error in
+                    if error != nil {
+                        callback("", (error!.localizedDescription) as String)
+                    } else {
+                        callback(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String,nil)
+                    }
+            })
+            
+            task.resume() //Tasks are called with .resume()
+            
+        }
+        
+        func HTTPGet(url: String, callback: @escaping (String, String?) -> Void) {
+            let request = NSMutableURLRequest(url: NSURL(string: url)! as URL) //To get the URL of the receiver , var URL: NSURL? is used
+            HTTPsendRequest(request: request, callback: callback)
+        }
+        
+        HTTPGet(url: completeu) {
+            (data: String, error: String?) -> Void in
+            if (data != "") {
+                self.verdict = "Unsafe!"
+                self.reason = data
+            } else {
+                self.verdict = "Safe!"
+                self.reason = ""
+            }
+        }
+        sleep(10)
     }
 
 //removed it :)
