@@ -34,6 +34,13 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func getWebSafety() {
+        var APIKey = "AIzaSyBfSH3lILjmW2wJgRcLpG-mItRr05X1U9k"
+        var clientName = "Security App"
+        var clientVersion = "1.0"
+        
+    }
 
 //removed it :)
 }
