@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     func pwnCheck() {
         let url = URL(string: "https://haveibeenpwned.com/api/v2/breachedaccount/george@gmail.com?truncateResponse=true")!
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-        self.pwnData.text = (NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String?)
+        self.pwnData.text = (NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as String?)
         }
         task.resume()
     }
