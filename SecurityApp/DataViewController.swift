@@ -19,6 +19,8 @@ class DataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        threatLabel.text = threat
+        descLabel.text = desc
 
         // Do any additional setup after loading the view.
     }

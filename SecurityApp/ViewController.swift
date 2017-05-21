@@ -20,23 +20,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var safetyTextField: UITextField!
     
     
-    func pwnCheck() {
-        let url = URL(string: "https://haveibeenpwned.com/api/v2/breachedaccount/george@gmail.com?truncateResponse=true")!
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-        self.pwnData.text = (NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String?)
-        }
-        task.resume()
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBAction func submitButtonPressed(_ sender: Any) {
+        userInput = safetyTextField.text
         catagorizeUserInput()
-        //userInput = safetyTextField.text
     }
     
     func segueToDataPage() {
@@ -44,22 +35,28 @@ class ViewController: UIViewController {
     }
     
     func catagorizeUserInput() {
+        print(userInput)
         for i in userInput.characters {
+            print(i)
             if i == "@" {
                 //threat = email
-                
+                print("Email!")
                 segueToDataPage()
+                return
                 
             }
-            if i == ":" {
+            else if i == ":" {
                 //threat = e
+                print("Website!")
+                getWebSafety()
                 segueToDataPage()
+                return
             }
-            else {
-                //threat = app
-                segueToDataPage()
-            }
+            
         }
+        print("Misc!")
+        segueToDataPage()
+        //threat = app
     }
     
     func getWebSafety() {
@@ -109,13 +106,21 @@ class ViewController: UIViewController {
         sleep(10)
     }
     
+    func pwnCheck() {
+        let url = URL(string: "https://haveibeenpwned.com/api/v2/breachedaccount/george@gmail.com?truncateResponse=true")!
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            self.pwnData.text = (NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String?)
+        }
+        task.resume()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "submitSegue" {
             let nextVC = segue.destination as! DataViewController
-            nextVC.threat = verdict
-            nextVC.desc = reason
+            nextVC.threat = self.verdict
+            nextVC.desc = self.reason
         }
     }
 }
