@@ -7,34 +7,30 @@
 //
 
 import UIKit
+import WebKit
 
-class WebVViewController: UIViewController {
-
+class WebVViewController: ViewController {
+    
+    @IBOutlet var containerView : UIView! = nil
+    var webView: WKWebView?
+    
+    override func loadView() {
+        super.loadView()
+        
+        self.webView = WKWebView()
+        self.view = self.webView!
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://www.hackingwithswift.com")!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
+        let url = URL(string:"http://www.kinderas.com/")
+        let req = URLRequest(url:url!)
+        self.webView!.load(req)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    */
-
+    
 }
