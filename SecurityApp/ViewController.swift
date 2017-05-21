@@ -41,6 +41,7 @@ class ViewController: UIViewController {
             if i == "@" {
                 //threat = email
                 print("Email!")
+                pwnCheck()
                 segueToDataPage()
                 return
                 
@@ -96,10 +97,10 @@ class ViewController: UIViewController {
         HTTPGet(url: completeu) {
             (data: String, error: String?) -> Void in
             if (data != "") {
-                self.verdict = "Unsafe!"
-                self.reason = data
+                self.verdict = "This website is unsafe!"
+                self.reason = "This website is unsafe because of " + data
             } else {
-                self.verdict = "Safe!"
+                self.verdict = "This website is safe!"
                 self.reason = ""
             }
         }
@@ -107,11 +108,51 @@ class ViewController: UIViewController {
     }
     
     func pwnCheck() {
-        let url = URL(string: "https://haveibeenpwned.com/api/v2/breachedaccount/george@gmail.com?truncateResponse=true")!
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            self.pwnData.text = (NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String?)
+        var e = userInput
+        var emailLink = "https://haveibeenpwned.com/api/v2/breachedaccount/" + e! +
+        "?truncateResponse=true"
+        var truncString = ""
+        func HTTPsendRequest(request: NSMutableURLRequest,callback: @escaping (String, String?) -> Void) {
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest,completionHandler :
+                {
+                    data, response, error in
+                    if error != nil {
+                        callback("", (error!.localizedDescription) as String)
+                    } else {
+                        callback(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String,nil)
+                    }
+            })
+            
+            task.resume() //Tasks are called with .resume()
+            
         }
-        task.resume()
+        
+        func HTTPGet(url: String, callback: @escaping (String, String?) -> Void) {
+            let request = NSMutableURLRequest(url: NSURL(string: url)! as URL) //To get the URL of the receiver , var URL: NSURL? is used
+            HTTPsendRequest(request: request, callback: callback)
+        }
+        
+        HTTPGet(url: emailLink) {
+            (data: String, error: String?) -> Void in
+            if data == "" {
+                self.verdict = "Your email has not been hacked!"
+                self.reason = ""
+            } else {
+                var foundColon = false
+                for i in data.characters {
+                    if foundColon && i != "\"" && i != "}" && i != "]"  {
+                        truncString += String(i)
+                    }
+                    else if !foundColon && i == ":" {
+                        foundColon = true
+                    }
+                self.verdict = "Your email has been hacked!"
+                self.reason = truncString + " has hacked your email!"
+                }
+            }
+        }
+        sleep(10)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
