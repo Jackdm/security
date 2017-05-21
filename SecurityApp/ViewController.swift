@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     var verdict : String!
     var reason : String!
+    var threatType : String!
     
     @IBOutlet weak var pwnData: UILabel!
     @IBOutlet weak var safetyTextField: UITextField!
@@ -35,12 +36,11 @@ class ViewController: UIViewController {
     }
     
     func catagorizeUserInput() {
-        print(userInput)
         for i in userInput.characters {
-            print(i)
             if i == "@" {
                 //threat = email
-                print("Email!")
+                threatType = "Email"
+                print(threatType)
                 pwnCheck()
                 segueToDataPage()
                 return
@@ -48,16 +48,20 @@ class ViewController: UIViewController {
             }
             else if i == ":" {
                 //threat = e
-                print("Website!")
+                threatType = "Website"
+                print(threatType)
                 getWebSafety()
                 segueToDataPage()
                 return
             }
             
         }
-        print("Misc!")
+        threatType = "N/A"
+        self.verdict = ""
+        self.reason = ""
         segueToDataPage()
         //threat = app
+        return
     }
     
     func getWebSafety() {
@@ -97,10 +101,10 @@ class ViewController: UIViewController {
         HTTPGet(url: completeu) {
             (data: String, error: String?) -> Void in
             if (data != "") {
-                self.verdict = "This website is unsafe!"
-                self.reason = "This website is unsafe because of " + data
+                self.verdict = "unsafe"
+                self.reason = data
             } else {
-                self.verdict = "This website is safe!"
+                self.verdict = "safe"
                 self.reason = ""
             }
         }
@@ -136,7 +140,7 @@ class ViewController: UIViewController {
         HTTPGet(url: emailLink) {
             (data: String, error: String?) -> Void in
             if data == "" {
-                self.verdict = "Your email has not been hacked!"
+                self.verdict = "safe"
                 self.reason = ""
             } else {
                 var foundColon = false
@@ -144,11 +148,15 @@ class ViewController: UIViewController {
                     if foundColon && i != "\"" && i != "}" && i != "]"  {
                         truncString += String(i)
                     }
-                    else if !foundColon && i == ":" {
+                    if !foundColon && i == ":" {
                         foundColon = true
                     }
-                self.verdict = "Your email has been hacked!"
-                self.reason = truncString + " has hacked your email!"
+                    if foundColon && i == "," {
+                        truncString += " "
+                        foundColon = false
+                    }
+                self.verdict = "unsafe"
+                self.reason = truncString
                 }
             }
         }
@@ -162,6 +170,7 @@ class ViewController: UIViewController {
             let nextVC = segue.destination as! DataViewController
             nextVC.threat = self.verdict
             nextVC.desc = self.reason
+            nextVC.type = self.threatType
         }
     }
 }

@@ -92,22 +92,63 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Threat Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fn-QT-29O">
-                                <rect key="frame" x="16" y="100" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Threat Level:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fn-QT-29O">
+                                <rect key="frame" x="16" y="100" width="343" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descriptions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="to7-XY-ogb">
-                                <rect key="frame" x="16" y="160" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descriptions:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="to7-XY-ogb">
+                                <rect key="frame" x="16" y="160" width="343" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reccomendation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBk-ka-MaB">
-                                <rect key="frame" x="16" y="221" width="343" height="21"/>
+                                <rect key="frame" x="16" y="457" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNb-nu-wie">
+                                <rect key="frame" x="153" y="447" width="206" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="What should I do?"/>
+                                <connections>
+                                    <segue destination="aCg-CP-fxJ" kind="show" identifier="helpSegue" id="eVY-kd-E7V"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="descLabel" destination="to7-XY-ogb" id="SIJ-rL-FK2"/>
+                        <outlet property="helpButton" destination="sNb-nu-wie" id="nfO-TQ-dWD"/>
+                        <outlet property="recLabel" destination="aBk-ka-MaB" id="1sU-hN-nKz"/>
+                        <outlet property="threatLabel" destination="9fn-QT-29O" id="Nl6-8z-QuM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JdG-zm-lAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1940" y="138.98050974512745"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="Afm-zI-MF1">
+            <objects>
+                <viewController id="aCg-CP-fxJ" customClass="HelpViewController" customModule="SecurityApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lfg-HM-fN2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yfr-nY-hXK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5DH-AX-QjO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm7-ep-jWa">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -117,14 +158,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="descLabel" destination="to7-XY-ogb" id="SIJ-rL-FK2"/>
-                        <outlet property="recLabel" destination="aBk-ka-MaB" id="1sU-hN-nKz"/>
-                        <outlet property="threatLabel" destination="9fn-QT-29O" id="Nl6-8z-QuM"/>
+                        <outlet property="realTitleLabel" destination="sm7-ep-jWa" id="qYN-5K-9wZ"/>
+                        <outlet property="titleLabel" destination="5DH-AX-QjO" id="WaI-6H-T3i"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JdG-zm-lAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHQ-jV-i83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1940" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2948" y="123.68815592203899"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wcH-uE-AS5">
