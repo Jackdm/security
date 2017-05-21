@@ -67,7 +67,7 @@
                                     <color key="titleColor" red="0.27258839769999998" green="1" blue="0.70341831089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Qrg-5C-mPW" kind="show" id="YGl-K4-Hmc"/>
+                                    <segue destination="Qrg-5C-mPW" kind="show" id="w8e-uY-iy4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -260,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
-        <!--WebV View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="TYO-L7-emi">
             <objects>
-                <viewController id="Qrg-5C-mPW" customClass="WebVViewController" customModule="SecurityApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qrg-5C-mPW" customClass="WebViewController" customModule="SecurityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bav-fq-lvd"/>
                         <viewControllerLayoutGuide type="bottom" id="fYr-2M-hQx"/>
@@ -272,18 +272,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FullSizeRender-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="S6i-H2-LI3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vfh-9i-yI0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="S6i-H2-LI3" firstAttribute="bottom" secondItem="fYr-2M-hQx" secondAttribute="top" id="Fhu-MK-hgF"/>
-                            <constraint firstItem="S6i-H2-LI3" firstAttribute="leading" secondItem="IkY-b3-QgV" secondAttribute="leading" id="MCt-J7-DHw"/>
-                            <constraint firstItem="S6i-H2-LI3" firstAttribute="top" secondItem="bav-fq-lvd" secondAttribute="bottom" id="f1C-Ed-t1k"/>
-                            <constraint firstAttribute="trailing" secondItem="S6i-H2-LI3" secondAttribute="trailing" id="uIb-GI-r4c"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="viewWebView" destination="Vfh-9i-yI0" id="trc-Gl-5MH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72F-P3-17B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,7 +290,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FullSizeRender-1.jpg" width="1242" height="2060"/>
         <image name="SecurityLogo..png" width="612" height="256"/>
     </resources>
 </document>
