@@ -50,7 +50,9 @@
                                 <rect key="frame" x="16" y="593" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="How can I protect my data?"/>
+                                <state key="normal" title="How can I protect my data?">
+                                    <color key="titleColor" red="0.27258839769999998" green="1" blue="0.70341831089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="NXZ-pA-qxJ" kind="show" id="hhA-dP-WMf"/>
                                 </connections>
@@ -60,7 +62,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcF-ph-Kck">
-                                <rect key="frame" x="-93" y="530" width="343" height="35"/>
+                                <rect key="frame" x="16" y="550" width="343" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Hacker News">
@@ -127,7 +129,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNb-nu-wie">
                                 <rect key="frame" x="153" y="447" width="206" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="What should I do?"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="What should I do?">
+                                    <color key="titleColor" red="0.27258839769999998" green="1" blue="0.70341831089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="aCg-CP-fxJ" kind="show" identifier="helpSegue" id="eVY-kd-E7V"/>
                                 </connections>
