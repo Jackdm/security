@@ -16,7 +16,7 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
         
         
-        let url = URL(string: "https://www.bideawee.org/")
+        let url = URL(string: "https://news.ycombinator.com/")
         if let unwrappedURL = url {
             
             let request = URLRequest(url: unwrappedURL)
