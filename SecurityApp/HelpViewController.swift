@@ -8,23 +8,49 @@
 
 import UIKit
 
-class HelpViewController: UIViewController {
+class HelpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //ignore this
     @IBOutlet var titleLabel: UIView!
     //ignore that
     
     @IBOutlet weak var realTitleLabel: UILabel!
     var type : String!
-    var helpfulWebLinks = ["https://www.digicert.com/blog/buy-site-know-website-secure/", "https://www.microsoft.com/en-us/safety/pc-security/malware-protect.aspx", "https://security.illinois.edu/content/protecting-yourself-malware"]
-    var helpfulEmailLinks = ["http://abcnews.go.com/Business/top-things-email-hacked/story?id=19715483", "http://www.cbsnews.com/news/5-must-do-steps-if-your-email-gets-hacked/", "http://www.businessinsider.com/how-to-avoid-being-hacked-2015-4"]
+    var chosenArray = [String]()
+    let helpfulWebLinks = ["https://www.digicert.com/blog/buy-site-know-website-secure/", "https://www.microsoft.com/en-us/safety/pc-security/malware-protect.aspx", "https://security.illinois.edu/content/protecting-yourself-malware"]
+    let helpfulEmailLinks = ["http://abcnews.go.com/Business/top-things-email-hacked/story?id=19715483", "http://www.cbsnews.com/news/5-must-do-steps-if-your-email-gets-hacked/", "http://www.businessinsider.com/how-to-avoid-being-hacked-2015-4"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         realTitleLabel.text = "What To Do if Your " + type + " is in Danger"
-
+        
+        if type == "Email" {
+            chosenArray = helpfulEmailLinks
+        } else {
+            chosenArray = helpfulWebLinks
+        }
+        print(chosenArray)
         // Do any additional setup after loading the view.
     }
     
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return chosenArray.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        cell.textLabel?.text = chosenArray[indexPath.row]
+        
+        return(cell)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let url = URL(string: chosenArray[indexPath.row]) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
 
     /*
     // MARK: - Navigation
