@@ -50,7 +50,9 @@
                                 <rect key="frame" x="16" y="593" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="How can I protect my data?"/>
+                                <state key="normal" title="How can I protect my data?">
+                                    <color key="titleColor" red="0.27258839769999998" green="1" blue="0.70341831089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="NXZ-pA-qxJ" kind="show" id="hhA-dP-WMf"/>
                                 </connections>
@@ -127,7 +129,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNb-nu-wie">
                                 <rect key="frame" x="153" y="447" width="206" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="What should I do?"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="What should I do?">
+                                    <color key="titleColor" red="0.27258839769999998" green="1" blue="0.70341831089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="aCg-CP-fxJ" kind="show" identifier="helpSegue" id="eVY-kd-E7V"/>
                                 </connections>
@@ -244,16 +249,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FullSizeRender-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="S6i-H2-LI3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FullSizeRender-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="W11-2P-PYC">
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="S6i-H2-LI3" firstAttribute="bottom" secondItem="fYr-2M-hQx" secondAttribute="top" id="Fhu-MK-hgF"/>
-                            <constraint firstItem="S6i-H2-LI3" firstAttribute="leading" secondItem="IkY-b3-QgV" secondAttribute="leading" id="MCt-J7-DHw"/>
-                            <constraint firstItem="S6i-H2-LI3" firstAttribute="top" secondItem="bav-fq-lvd" secondAttribute="bottom" id="f1C-Ed-t1k"/>
-                            <constraint firstAttribute="trailing" secondItem="S6i-H2-LI3" secondAttribute="trailing" id="uIb-GI-r4c"/>
+                            <constraint firstAttribute="trailing" secondItem="W11-2P-PYC" secondAttribute="trailing" id="gmo-26-p3F"/>
+                            <constraint firstItem="W11-2P-PYC" firstAttribute="bottom" secondItem="fYr-2M-hQx" secondAttribute="top" id="kas-HM-1kc"/>
+                            <constraint firstItem="W11-2P-PYC" firstAttribute="leading" secondItem="IkY-b3-QgV" secondAttribute="leading" id="m8K-v4-LwB"/>
+                            <constraint firstItem="W11-2P-PYC" firstAttribute="top" secondItem="bav-fq-lvd" secondAttribute="bottom" constant="8" symbolic="YES" id="tEK-ka-mij"/>
                         </constraints>
                     </view>
                 </viewController>
