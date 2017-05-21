@@ -12,6 +12,10 @@ class WebVViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let url = URL(string: "https://www.hackingwithswift.com")!
+        webView.load(URLRequest(url: url))
+        webView.allowsBackForwardNavigationGestures = true
 
         // Do any additional setup after loading the view.
     }
@@ -19,6 +23,7 @@ class WebVViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
 
