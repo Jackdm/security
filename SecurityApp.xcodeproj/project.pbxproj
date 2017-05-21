@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C27E8511ED0E14400473CA3 /* SecurityLogo..png in Resources */ = {isa = PBXBuildFile; fileRef = 2C27E8501ED0E14400473CA3 /* SecurityLogo..png */; };
+		2C27E85B1ED1486000473CA3 /* FullSizeRender-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C27E85A1ED1486000473CA3 /* FullSizeRender-1.jpg */; };
+		2C27E85D1ED1486400473CA3 /* FullSizeRender.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C27E85C1ED1486400473CA3 /* FullSizeRender.jpg */; };
 		2C27FD7E1ED080EF004900E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C27FD7D1ED080EF004900E9 /* AppDelegate.swift */; };
 		2C27FD801ED080EF004900E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C27FD7F1ED080EF004900E9 /* ViewController.swift */; };
 		2C27FD831ED080EF004900E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C27FD811ED080EF004900E9 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		2C27E8501ED0E14400473CA3 /* SecurityLogo..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SecurityLogo..png; path = ../../SecurityLogo..png; sourceTree = "<group>"; };
+		2C27E85A1ED1486000473CA3 /* FullSizeRender-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "FullSizeRender-1.jpg"; path = "../../../Desktop/FullSizeRender-1.jpg"; sourceTree = "<group>"; };
+		2C27E85C1ED1486400473CA3 /* FullSizeRender.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = FullSizeRender.jpg; path = ../../../Desktop/FullSizeRender.jpg; sourceTree = "<group>"; };
 		2C27FD7A1ED080EF004900E9 /* SecurityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecurityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C27FD7D1ED080EF004900E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C27FD7F1ED080EF004900E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C27E8591ED1485900473CA3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				2C27E85A1ED1486000473CA3 /* FullSizeRender-1.jpg */,
+				2C27E85C1ED1486400473CA3 /* FullSizeRender.jpg */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		2C27FD711ED080EF004900E9 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +77,7 @@
 		2C27FD7C1ED080EF004900E9 /* SecurityApp */ = {
 			isa = PBXGroup;
 			children = (
+				2C27E8591ED1485900473CA3 /* New Group */,
 				2C27FD7D1ED080EF004900E9 /* AppDelegate.swift */,
 				2C27FD8F1ED083C8004900E9 /* AmIPwned.swift */,
 				2C27FD7F1ED080EF004900E9 /* ViewController.swift */,
@@ -139,8 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C27FD881ED080EF004900E9 /* LaunchScreen.storyboard in Resources */,
+				2C27E85D1ED1486400473CA3 /* FullSizeRender.jpg in Resources */,
 				2C27FD851ED080EF004900E9 /* Assets.xcassets in Resources */,
 				2C27FD831ED080EF004900E9 /* Main.storyboard in Resources */,
+				2C27E85B1ED1486000473CA3 /* FullSizeRender-1.jpg in Resources */,
 				2C27E8511ED0E14400473CA3 /* SecurityLogo..png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,7 +32,9 @@
                                 <rect key="frame" x="16" y="269" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Submit"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.27258839769999998" green="1" blue="0.70341831089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="submitButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Zz-Sh-xj6"/>
                                 </connections>
@@ -53,19 +55,21 @@
                                     <segue destination="NXZ-pA-qxJ" kind="show" id="hhA-dP-WMf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcF-ph-Kck">
-                                <rect key="frame" x="16" y="524" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Hacker News &amp; Recent Hacks"/>
-                                <connections>
-                                    <segue destination="Qrg-5C-mPW" kind="show" id="YGl-K4-Hmc"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SecurityLogo..png" translatesAutoresizingMaskIntoConstraints="NO" id="1x8-EV-NhJ">
                                 <rect key="frame" x="67" y="64" width="240" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcF-ph-Kck">
+                                <rect key="frame" x="-93" y="530" width="343" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Hacker News">
+                                    <color key="titleColor" red="0.27258839769999998" green="1" blue="0.70341831089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Qrg-5C-mPW" kind="show" id="YGl-K4-Hmc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -170,7 +174,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gnq-Is-GmZ" id="hbU-l9-7G5">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -240,17 +244,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKH-hp-V75">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FullSizeRender-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="S6i-H2-LI3">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S6i-H2-LI3" firstAttribute="bottom" secondItem="fYr-2M-hQx" secondAttribute="top" id="Fhu-MK-hgF"/>
+                            <constraint firstItem="S6i-H2-LI3" firstAttribute="leading" secondItem="IkY-b3-QgV" secondAttribute="leading" id="MCt-J7-DHw"/>
+                            <constraint firstItem="S6i-H2-LI3" firstAttribute="top" secondItem="bav-fq-lvd" secondAttribute="bottom" id="f1C-Ed-t1k"/>
+                            <constraint firstAttribute="trailing" secondItem="S6i-H2-LI3" secondAttribute="trailing" id="uIb-GI-r4c"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="WebVVC" destination="kKH-hp-V75" id="UlM-Rw-KiF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72F-P3-17B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,6 +263,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="FullSizeRender-1.jpg" width="1242" height="2060"/>
         <image name="SecurityLogo..png" width="612" height="256"/>
     </resources>
 </document>
